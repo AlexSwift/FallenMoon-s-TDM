@@ -1,0 +1,25 @@
+"Gamemode"
+{
+	"name"		"Team Deathmatch"
+	"version"	"1.0"
+
+	"author_name"	"Robheadshot & FallenMoons"
+	"author_email"	"robertvictorkirby@hotmail.co.uk & fallenmoons12@gmail.com"
+	"author_url"	""
+	
+	"icon"		""
+	"info"		""
+	"hide"		"0"
+  
+      "mappattern"
+        {
+			"1" "^rpdm_"
+
+        }
+
+        "selectable"	"1"
+        "description"	"There are four factions who are all sworn enemies, Your mission is to stop the enemy team at all costs!"
+
+
+}
+

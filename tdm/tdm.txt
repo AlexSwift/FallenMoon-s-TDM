@@ -1,0 +1,21 @@
+"Gamemode"
+{
+	"menusystem"	"1"
+	"workshopid"	""
+	"base"		"base"
+	"title"		"Team Deathmatch"
+	"maps"		"^tdm_"
+	"author_name"	"FallenMoons & Robheadshot + Development Team"
+
+	"settings"
+	{
+		1
+		{
+			"name"		"Team Deathmatch"
+			"version"	"1.0"
+			"help"		"Team Deathmatch underconstruction"
+			"type"		"numeric"
+			"default"	"1"
+		}
+	}
+}

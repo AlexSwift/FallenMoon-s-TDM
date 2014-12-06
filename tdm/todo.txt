@@ -1,0 +1,27 @@
+// Hud							   ____________________________________________
+Team scores on the top of the hud /__________/__________/__________/__________/
+
+// Main Menu
+Make the main menu have more of a windows 8 feel to it
+Make buttons for :
+				  Teams
+				  Disconnect
+				  Purchace Gold
+Create Shop menu tab
+Add Server Jumper
+
+//Shop
+Add support for the function "AddItem" to make it easy to add items
+Weapon specs on the weapon buttons
+
+// Inventory
+Fix up the inventory "Equip Weapon" to only allow one at a time
+Create a new better looking inventory
+Make the inventory items spin
+
+// Gameplay
+Add map sellection menu
+
+// Other
+Convince XTC to help with the shop
+
