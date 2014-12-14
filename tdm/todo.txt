@@ -25,3 +25,107 @@ Add map sellection menu
 // Other
 Convince XTC to help with the shop
 
+
+
+--------------------------------------------
+
+class 'MySQL' {
+
+	public {
+	
+		Initialize = function( self )
+			require( tmysql )
+			if not tmysql then 
+				print( '[MySQL] TMySQL module not loaded '
+				return false
+			end
+			self.db_fWrapper = tmysql
+			return true
+		end;
+		
+		Connect = function( self )	
+			self.db_fWrapper.Connect( self.b_sAddress, 
+	
+	};
+	
+	private {
+	
+		db_sAddress	= '0.0.0.0';
+		db_sPort	= '3360';
+		db_sUser	= 'username';
+		db_sPass	= 'password';
+		db_fWrapper	= { };
+	
+	};
+	
+}
+
+
+--Probably place this in init.lua
+
+GM.MySQL = MySQL.new()
+if GM.MySQL:Initialize() then
+	GM.MySQL:Connect()
+end
+
+----------------------------------------------------
+
+class 'Profile' {
+	
+	public {
+	
+		LoadProfile = function( self, ply )
+		
+			--setup query here
+			
+			--Set the Owner p_ePlayer
+			--Set p_iCredit p_iGold and p_iXP
+			
+		end;
+	
+		SetCredit = function( self, p_iCredit )
+			if not p_iCredit or type( p_iCredit ) ~= 'number' then return false end
+			self.p_iCredit = p_iCredit
+			return true
+		end;
+		
+		SetGold = function( self, p_iGold )
+			if not p_iGold or type( p_iGold ) ~= 'number' then return false end
+			self.p_iGold = p_iGold
+			return true
+		end;
+		
+		SetXP = function( self, p_iXP )
+			if not p_iXP or type( p_iXP ) ~= 'number' then return false end
+			self.p_iXP = p_iXP
+			return true
+		end;
+		
+		GetCredit = function( self )
+			if not self.p_iCredit then return false end
+			return self.p_iCredit
+		end;
+		
+		GetGold = function( self )
+			if not self.p_iGold then return false end
+			return self.p_iGold
+		end;
+		
+		GetXP = function( self )
+			if not self.p_iXP tjem return false end
+			return self.p_iXP
+		end
+		
+	};
+	
+	private {
+		
+		p_iCredit 	= 0;
+		p_iGold 	= 0;
+		p_iXp		= 0;
+		p_ePlayer	= Entity( 0 ); --Set this to work for now until player is intialized
+		
+	};
+	
+}
+
