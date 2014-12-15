@@ -1,5 +1,9 @@
-// Hud							   ____________________________________________
-Team scores on the top of the hud /__________/__________/__________/__________/
+// Hud				   ______________________             ______________________
+Team scores on the top of the hud |_team1___|__team2____| TIME HERE  |____team3___|_team4___|
+# of players left on team. Team greys out when at zero and annouces the team defeat in chat.
+
+
+
 
 // Main Menu
 Make the main menu have more of a windows 8 feel to it
@@ -23,7 +27,7 @@ Make the inventory items spin
 Add map sellection menu
 
 // Other
-Convince XTC to help with the shop
+
 
 
 
