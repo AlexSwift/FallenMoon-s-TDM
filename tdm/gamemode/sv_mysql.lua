@@ -52,7 +52,7 @@ class 'MySQL' {
 		
 		Update = function( self, db_sTable, db_aData, db_sCondition )
 			
-			local db_sQuery = 'UPDATE `" .. db_sTable .. "` SET "
+			local db_sQuery = "UPDATE `" .. db_sTable .. "` SET "
 			
 			for k,v in ipairs( db_sData ) do
 				db_sQuery = db_sQuery .. "`" .. k .. "`=`" .. v .."`, "
