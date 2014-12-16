@@ -11,8 +11,8 @@ class 'Item' {
 				local item = Item.new( )
 				ITEMS[ i_aData[ i_sName ] ] = item
 				
-				for k,v in pairs( i_aData )
-					if self[ k ] then self[ k ] = v
+				for k,v in pairs( i_aData ) do
+					if self[ k ] then self[ k ] = v end
 				end
 			
 			end;
