@@ -4,14 +4,14 @@ include( 'sh_profile.lua' )
 
 AddCSLuaFile( 'sh_init.lua' )
 AddCSLuaFile( 'sh_simploo.lua' )
-AddCSLuafile( 'cl_profile.lua' )
+AddCSLuaFile( 'cl_profile.lua' )
 
 function GM:Initialize( )
 
-	GM.MySQL = MySQL.new()
+	self.MySQL = MySQL.new()
 
-	if GM.MySQL:Initialize() then
-		GM.MySQL:Connect()
+	if self.MySQL:Initialize() then
+		self.MySQL:Connect()
 	end
 	
 end
