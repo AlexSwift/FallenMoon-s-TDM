@@ -1,8 +1,5 @@
 -- Variables that are used on both client and server
 SWEP.Gun = ("m9k_luger") -- must be the name of your swep but NO CAPITALS!
-if (GetConVar(SWEP.Gun.."_allowed")) == nil then 
-	if (GetConVar("DebugM9K"):GetBool()) then	print("Blacklist Convar for "..SWEP.Gun.." is missing! You may have hit the lua limit, or incorrectly modified the autorun file!")	end
-elseif not (GetConVar(SWEP.Gun.."_allowed"):GetBool()) then SWEP.Base = "bobs_blacklisted" SWEP.PrintName = SWEP.Gun return end
 SWEP.Category				= "M9K Pistols"
 SWEP.Author				= ""
 SWEP.Contact				= ""
@@ -63,11 +60,3 @@ SWEP.SightsAng = Vector(0.563, -0.013, 0)
 SWEP.RunSightsPos = Vector(0, 0, 2.575)
 SWEP.RunSightsAng = Vector(-14.657, 0, 0)
 
-if GetConVar("M9KDefaultClip") == nil then
-	print("M9KDefaultClip is missing! You may have hit the lua limit!")
-else
-	if GetConVar("M9KDefaultClip"):GetFloat() >= 0 then
-	SWEP.Primary.DefaultClip = SWEP.Primary.DefaultClip * GetConVar("M9KDefaultClip"):GetFloat()
-	PainMulti = GetConVar("M9KDefaultClip"):GetFloat()
-	else return end
-end

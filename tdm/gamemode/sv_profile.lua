@@ -4,42 +4,51 @@ class 'Profile' {
 	
 	public {
 	
-		LoadProfile = function( ply )
+		static {
 		
-			if not GM.MySQL then return false end
+			const {
+	
+				LoadProfile = function( ply )
+				
+					if not GAMEMODE.MySQL or not GAMEMODE.MySQL:IsConnected() then return false end
+				
+					local db_aResult = ( GAMEMODE.MySQL:Query( "SELECT * from `tdm_profile` WHERE `steamid` = `" .. ply:SteamID() .. "`" ) or { { } } )[1] or {}
+					
+					ply.Profile = Profile.new()
+					ply.Profile:SetOwner( ply )
+					ply.Profile:SetGold( db_aResult[ 'gold' ] or 1000, false  )
+					ply.Profile:SetXP( db_aResult[ 'xp' ] or 0, false )
+					ply.Profile:SetCredit( db_aResult[ 'credit' ] or 0, false)
+					ply.Profile:SetInventory( db_aResult[ 'inventory' ] or {}, false )
+					
+				end;
+				
+			
+				SaveProfile = function( self )
+				
+					if not GAMEMODE.MySQL then return false end
+				
+					local db_aData = {
+						['gold']		= self:GetGold( ),
+						['credit']		= self:GetCredit( ),				
+						['xp']			= self:GetXP( ),
+						['inventory']	= self:GetInventory( )
+					}
+					
+					GAMEMODE.MySQL:Update( 'tdm_profile', db_aData, "WHERE `steamid` = `" .. self:GetOwner():SteamID() .. "`" )
+					
+				end;
 		
-			local db_aResult = GM.MySQL:Query( "SELECT * from `tdm_profile` WHERE `steamid` = `" .. ply:SteamID() .. "`" )[1]
+				DestroyProfile = function( self ) --PLEASE DO NOT CALL BY MISTAKE
+					
+					self:SaveProfile( )
+					self = nil
+					
+				end;
+				
+			};
 			
-			ply.Profile = Profile.new()
-			ply.Profile:SetOwner( ply )
-			ply.Profile:SetGold( db_aResult[ 'gold' ] or 1000  )
-			ply.Profile:SetXP( db_aResult[ 'xp' ] or 0 )
-			ply.Profile:SetCredit( db_aResult[ 'credit' ] or 0)
-			ply.Profile:SetInventory( db_aresult[ 'inventory' ] or {} )
-			
-		end;
-		
-		SaveProfile = function( self )
-		
-			if not GM.MySQL then return false end
-		
-			local db_aData = {
-				'gold'		= self:GetGold( ),
-				'credit'	= self:GetCredit( ),				
-				'xp'		= self:GetXP( ),
-				'inventory'	= self:GetInventory( )
-			}
-			
-			GM.MySQL:Update( 'tdm_profile', db_aData, "WHERE `steamid` = `" .. ply:SteamID() .. "`" )
-			
-		end;
-		
-		DestroyProfile( self ) --PLEASE DO NOT CALL BY MISTAKE
-			
-			self:SaveProfile( )
-			self = nil
-			
-		end;
+		};
 		
 		Network = function( self, p_aData )
 			
@@ -105,13 +114,15 @@ class 'Profile' {
 			
 		end;
 		
-		SetCredit = function( self, p_iCredit )
+		SetCredit = function( self, p_iCredit, p_bSave )
 		
 			if not p_iCredit or type( p_iCredit ) ~= 'number' then return false end
 			self.p_iCredit = p_iCredit
 			
-			self:SaveProfile( )
 			self:Network( { p_iCredit = p_iCredit } )
+			
+			if not p_bSave then return true end
+			self:SaveProfile( )
 			
 			return true
 		end;
@@ -121,8 +132,10 @@ class 'Profile' {
 			if not p_iGold or type( p_iGold ) ~= 'number' then return false end
 			self.p_iGold = p_iGold
 			
-			self:SaveProfile( )
 			self:Network( { p_iGold = p_iGold } )
+			
+			if not p_bSave then return true end
+			self:SaveProfile( )
 			
 			return true
 		end;
@@ -132,8 +145,10 @@ class 'Profile' {
 			if not p_iXP or type( p_iXP ) ~= 'number' then return false end
 			self.p_iXP = p_iXP
 			
-			self:SaveProfile( )
 			self:Network( { p_iXP = p_iXP } )
+			
+			if not p_bSave then return true end
+			self:SaveProfile( )
 			
 			return true
 		end;
@@ -143,8 +158,10 @@ class 'Profile' {
 			if not p_aInventory or type( p_aInventory ) ~= 'table' then return false end
 			self.p_aInventory = p_aInventory
 			
-			self:SaveProfile( )
 			self:Network( { p_aInventory = p_aInventory } )
+			
+			if not p_bSave then return true end
+			self:SaveProfile( )
 			
 			return true
 		
@@ -176,8 +193,8 @@ class 'Profile' {
 		
 		p_iCredit 	= 0;
 		p_iGold 	= 0;
-		p_iXp		= 0;
-		P_aInventory= { }; -- { [item_name] = amount , ... }
+		p_iXP		= 0;
+		p_aInventory= { }; -- { [item_name] = amount , ... }
 		p_ePlayer	= Entity( 0 ); --Set this to work for now until player is intialized
 		
 	};

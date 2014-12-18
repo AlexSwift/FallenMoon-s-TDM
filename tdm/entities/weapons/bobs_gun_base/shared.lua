@@ -54,7 +54,6 @@ local PainMulti = 1
 
 if GetConVar("M9KDamageMultiplier") == nil then
 	PainMulti = 1
-	print("M9KDamageMultiplier is missing! You may have hit the lua limit! Reverting multiplier to 1.")
 else
 	PainMulti = GetConVar("M9KDamageMultiplier"):GetFloat()
 	if PainMulti < 0 then
@@ -84,7 +83,6 @@ end
 cvars.AddChangeCallback("M9KDefaultClip", NewDefClips)
 
 if GetConVar("M9KDefaultClip") == nil then
-	print("M9KDefaultClip is missing! You may have hit the lua limit!")
 else
 	if GetConVar("M9KDefaultClip"):GetFloat() >= 0 then
 		print("M9K Weapons will now spawn with "..GetConVar("M9KDefaultClip"):GetFloat().." clips.")
@@ -1315,7 +1313,5 @@ if CLIENT then
 	end
 	
 end
-
-if not (GetConVar("M9KUniqueSlots"):GetBool()) then 
+ 
 SWEP.SlotPos = 2
-end

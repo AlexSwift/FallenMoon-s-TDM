@@ -1,8 +1,5 @@
 -- Variables that are used on both client and server
 SWEP.Gun = ("m9k_harpoon") -- must be the name of your swep but NO CAPITALS!
-if (GetConVar(SWEP.Gun.."_allowed")) == nil then 
-	if (GetConVar("DebugM9K"):GetBool()) then	print("Blacklist Convar for "..SWEP.Gun.." is missing! You may have hit the lua limit, or incorrectly modified the autorun file!")	end
-elseif not (GetConVar(SWEP.Gun.."_allowed"):GetBool()) then SWEP.Base = "bobs_blacklisted" SWEP.PrintName = SWEP.Gun return end
 SWEP.Category				= "M9K Specialties"
 SWEP.Author				= ""
 SWEP.Contact				= ""
@@ -174,10 +171,4 @@ return false
 end	
 
 function SWEP:Think()
-end
-
-if (gmod.GetGamemode().Name == "Murderthon 9000") or GetConVar("DebugM9K"):GetBool() then
-	SWEP.Primary.ClipSize			= -1		-- Size of a clip
-	SWEP.Primary.DefaultClip		= -1		-- Bullets you start with
-	SWEP.Primary.Ammo			= "none"
 end

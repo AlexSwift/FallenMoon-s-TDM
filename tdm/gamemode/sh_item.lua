@@ -1,25 +1,25 @@
+local _ITEMS = {}
+
 class 'Item' {
 
 	public {
 	
 		static {
-		
-			ITEMS = {};
 			
 			Add = function( i_aData )
 		
 				local item = Item.new( )
-				ITEMS[ i_aData[ i_sName ] ] = item
+				_ITEMS[ i_aData[ 'i_sName' ] ] = item
 				
-				for k,v in pairs( i_aData )
-					if self[ k ] then self[ k ] = v
+				for k,v in pairs( i_aData ) do
+					item:SetData( k, v)
 				end
 			
 			end;
 			
 			Exists = function( i_sName )
 				
-				return IsValid( Item.ITEMS[ i_sName ] )
+				return IsValid( _ITEMS[ i_sName ] )
 			
 			end;
 			
@@ -40,6 +40,10 @@ class 'Item' {
 	};
 	
 	private {
+	
+		SetData = function( self, d_sName, d_zValue )
+			self[ d_sName ] = d_zValue
+		end;
 	
 		i_sName			= '';
 		i_iSlot			= 0;

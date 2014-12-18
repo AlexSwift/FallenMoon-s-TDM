@@ -1,17 +1,19 @@
 include( 'sh_init.lua' )
 include( 'sv_mysql.lua' )
-include( 'sh_profile.lua' )
+include( 'sv_profile.lua' )
+include( 'sv_round.lua' )
 
 AddCSLuaFile( 'sh_init.lua' )
 AddCSLuaFile( 'sh_simploo.lua' )
-AddCSLuafile( 'cl_profile.lua' )
+AddCSLuaFile( 'cl_profile.lua' )
 
 function GM:Initialize( )
 
-	GM.MySQL = MySQL.new()
+	self.MySQL = MySQL.new()
+	self.Round = Round.new()
 
-	if GM.MySQL:Initialize() then
-		GM.MySQL:Connect()
+	if self.MySQL:Initialize() then
+		self.MySQL:Connect()
 	end
 	
 end

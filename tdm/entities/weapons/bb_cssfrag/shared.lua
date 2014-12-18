@@ -1,8 +1,5 @@
 -- Variables that are used on both client and server
 SWEP.Gun = ("bb_cssfrag") -- must be the name of your swep but NO CAPITALS!
-if (GetConVar(SWEP.Gun.."_allowed")) == nil then 
-	if (GetConVar("DebugM9K"):GetBool()) then	print("Blacklist Convar for "..SWEP.Gun.." is missing! You may have hit the lua limit, or incorrectly modified the autorun file!")	end
-elseif not (GetConVar(SWEP.Gun.."_allowed"):GetBool()) then SWEP.Base = "bobs_blacklisted" SWEP.PrintName = SWEP.Gun return end
 SWEP.Category				= "CS:S Weapons"
 SWEP.Author				= ""
 SWEP.Contact				= ""
@@ -51,7 +48,7 @@ if not(IsMounted("cstrike")) then
 end
 
 if GetConVar("M9KUnified_CSS_vms") == nil then
-	print("A console variable for the M9K CSS addon cannot be found, this means you probably hit the lua limit. Disable some addons if you want things to work.")
+	
 elseif GetConVar("M9KUnified_CSS_vms"):GetBool() then
 	SWEP.UseHands = true	
 	local oldvm = SWEP.ViewModel
