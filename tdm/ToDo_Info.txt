@@ -1,0 +1,52 @@
+TEAM SELECTION:
+So the first thing people need to do when they log in is choose a team to play for. Below is an image of what I think is should look like. The teams should change order depending on which has the least amount of people. If one is full then it should be grayed out and at the bottom. When they change locations they probably should animate. Just slide down or up. Or maybe like a "Switching" animation? When the menu first shows the name should slide out from the left of the screen followed by the team selector just moments afterward, this way it looks like they are sliding out in order. The name should be a little less than halfway in front of the team selector. I think this will look best, however I welcome your opinion, so please let me know what you think.
+
+Demo image:
+http://i.imgur.com/mdsDG0O.png
+
+
+
+ROUNDS:
+The rounds should be most likely 10-12 minutes long each. A config option for round times would be nice. This way it gives time for the other teams to kill each other but at the same time if two people are friends or something and just want to be annoying and stand there then there is a time limit to end the round. Maybe when time is up they start losing health slowly? Then one person team will win. Not sure, let me know if you have any ideas for handling this. When they first select a team they should have to wait for the beginning of the next round. Even if the teams are still in standby choosing weapons and such they should have to wait, this way they get the full time to select their weapons and such. After 3 rounds the people should have to vote on a new map. After a new map switch it should wait like 20-30 seconds or so before attempting to start a new round thus giving time for the rest of the players to join.
+
+
+
+Main Menu:
+I asked around and it seems more people like the main menu idea more than the tab idea. However, some people said the animations would be cool while others said they wanted the menu to open real fast and just be done so we should add an option for that. So far the options should be a color picker for the menu, a text color picker, animation speed slider(if possible), and a toggle for animations. The model previews should only spin when there is a mouse over them. This way they aren't a constant distraction. The inventory tab should be split into tabs for Secondary and Primary weapons. On the top part next to the settings button there should be a button to donate/get gold. Next to that button should be a button for rules and next to that, a button for help. When they click on these buttons the other menu should remove itself and the new menu should animate in or appear depending on their animation settings. This also includes the market buttons.
+
+Like this:
+http://i.imgur.com/aBaa2dI.png
+
+Market:
+Menu that is opened and takes up the whole screen. Kinda like a new main menu. Little round timer in the left that turns red when a new game is about to start. If you select the weapons market then you get two options on the side, "Purchase" and "Sell". For the purchase menu it should open another set of tabs for "Rifles", "Shotguns", "Snipers" etc. One for each weapon type. When they select a weapon it shows the price for Gold and Credits. If they cant afford it it should have the option to buy it grayed out. So if they can purchase it with gold but not credits the purchase with credits button should be grayed out. Also need a "Key" item and that should only be purchasable through gold. As for the supply of weapons it should be related to who's selling. So only items put up for sale by players can be bought. This way it's a player driven market and the values fluctuate making for some interesting marketing and more player involvement! For the sell menu it should show them their inventory, they can select a weapon and it shows a popup menu saying the recommended sell price, lowest, and top sale prices for that particular item, if none are being sold then it should say something along the lines of "None on the market!". The player can then enter a price, the item is removed and added to the market. If a player buys said item then they get the money removed from their account and added to the seller's account. They cannot sell items for gold, only credits. They can also sell keys. If you select the skins tab it should be the same thing except with a pre-populated market (not player driven) with purchasable skins. Two tabs, one for ones purchasable with credits, another with ones purchasable with gold.
+
+Stamina: Stamina that decreases when they run. Not when they jump. Easy! :D
+
+Levels:
+Basic leveling system. At the end of every round they get a set XP if their team wins and a set XP if their team loses. They get bonus XP for headshots, last man standing, first kill.
+
+Headshots: Possible to detect that? I have no idea.
+
+Gold:
+Just need a command to add gold as well as a button placed that says "Get Gold" or something that will open a browser to the website. Config for this is a must so I can add the proper link for donations later.
+
+Credits: They get a set amount for winning a match and a set amount for losing. If they get any awards (see levels) then they get a bonus. Also, randomly (like weapon drops) they should be able to get a very rare amount of money between a certain number of credits. A config for the money drops would be awesome.
+
+Inventory:
+Should be easy to navigate and clean looking with tabs for each weapon type (like the market). When they hover over an item it gives the items description, quality, and stats (damage, etc.), should also include a button to equipt. If a key is selected then they should be presented a list of all the crates they own and they should pick one or exit. If they pick one play an unlocking sound then show them their new weapon and it's stats, then place it in their inventory.
+
+Load Outs:
+Everytime the loadout is changed the updated loadout should be downloaded to the client. At the start of each round the loadout is given to the player and that's it!
+
+Weapon Qualities:
+There should be 5 possible qualities for all the weapons, "Abused", "Worn", "Minimal Use", "New", and "Factory New". Factory new should have the full damage of the weapon and the other qualities should have a damage decreased slightly as they get worse in quality . They should be decreased by a percentage and then rounded to avoid any weird health issues. They should never change quality.
+
+Crates:
+Crates can be earned through the random drop and only through that. They can, however, be sold on the market for credits. When they unlock them they get a random weapon from the possible outcomes based on the kind of crate (if it's a sniper crate or a pistol crate etc). The weapon is also a random quality, either "Minimal Use", "New" "Factory New".
+
+Spawns:
+Player spawns need to be set based on team name. In hammer, to create a map for more than two teams, I need to use info_player_spawn. Which means I need to give it a name for you to reference in the code. So just have them spawn at a spawn labeled "Blue" or "red" etc. if available, otherwise just void that and spawn them and the default spawns. This was if I run a map for testing and it doesnt have that in place it wont completely bug out.
+
+
+
+And I think that's it. If you have any questions on anything or if I realized I missed something I will add it.
