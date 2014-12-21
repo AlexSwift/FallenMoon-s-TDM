@@ -36,16 +36,16 @@ Inventory:
 Should be easy to navigate and clean looking with tabs for each weapon type (like the market). When they hover over an item it gives the items description, quality, and stats (damage, etc.), should also include a button to equipt. If a key is selected then they should be presented a list of all the crates they own and they should pick one or exit. If they pick one play an unlocking sound then show them their new weapon and it's stats, then place it in their inventory.
 
 Load Outs:
-Everytime the loadout is changed the updated loadout should be downloaded to the client. At the start of each round the loadout is given to the player and that's it!
+Everytime the loadout is changed the updated loadout should be saved to the server (Probably through SQL. Less files, less mess). At the start of each round the loadout is given to the player and that's it!
 
 Weapon Qualities:
-There should be 5 possible qualities for all the weapons, "Abused", "Worn", "Minimal Use", "New", and "Factory New". Factory new should have the full damage of the weapon and the other qualities should have a damage decreased slightly as they get worse in quality . They should be decreased by a percentage and then rounded to avoid any weird health issues. They should never change quality.
+There should be 5 possible qualities for all the weapons, "Rusty", "Antique", "New", "Military Class", and "Custom Built". "Custom Built" should have the full damage of the weapon and the other qualities should have a damage decreased slightly as they get worse in quality . They should be decreased by a percentage and then rounded to avoid any weird health issues. They should never change quality.
 
 Crates:
 Crates can be earned through the random drop and only through that. They can, however, be sold on the market for credits. When they unlock them they get a random weapon from the possible outcomes based on the kind of crate (if it's a sniper crate or a pistol crate etc). The weapon is also a random quality, either "Minimal Use", "New" "Factory New".
 
 Spawns:
-Player spawns need to be set based on team name. In hammer, to create a map for more than two teams, I need to use info_player_spawn. Which means I need to give it a name for you to reference in the code. So just have them spawn at a spawn labeled "Blue" or "red" etc. if available, otherwise just void that and spawn them and the default spawns. This was if I run a map for testing and it doesnt have that in place it wont completely bug out.
+Player spawns need to be set through lua so if you could add at the beginning of the round for the map to be checked from a file this way if I add a new map it will be easy to set the spawns for it.
 
 
 
