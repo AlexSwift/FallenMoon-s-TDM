@@ -1,16 +1,16 @@
 #To Do
 
 - [ ] Team Selection
-- [ ] Rounds
+- [x] Rounds
 - [ ] Main Menu
 - [ ] Market
 - [ ] Stamina
 - [ ] Levels
 - [ ] Headshots
-- [ ] Gold
-- [ ] Credits
+- [x] Gold
+- [x] Credits
 - [ ] Inventory
-- [ ] Load Outs
+- [x] Load Outs
 - [ ] Weapon Qualities
 - [ ] Crates
-- [ ] Spawns
+- [x] Spawns
